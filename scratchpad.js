@@ -146,3 +146,129 @@ function isPrime(n) {
 }
 
 //Best case is O(1) otherwise O(n)
+
+
+// RECURSIVE WORK FROM YESTERDAY
+
+function countSheep(numSheep){
+  if (numSheep<1){
+    return;
+  }
+  console.log(numSheep+' Another Sheep Jumped Over The Fence');
+  countSheep(numSheep-1);
+}
+// O(n)
+// since it will print an N ammount of sheep
+
+function arrDouble(arr){
+  if(arr.length===0){
+    return [];
+  }
+  return [arr[0]*2, ...arrDouble(arr.slice(1))];
+}
+// O(n)
+// slices and doubles through the entire array only once.
+
+function stringReverse(string){
+  if(string === ''){
+    return '';
+  }
+  return stringReverse(string.slice(1))+string[0];
+}
+
+// O(n)
+// slices and returns the string in backwards order only once
+
+function triangleNum(num){
+  if(num===1){
+    return 1;
+  }
+  return num + triangleNum(num-1);
+}
+
+// O(n)
+// because it sums the tringlenum an N ammount of time
+
+function binaryConverter(decimal){
+  if(decimal===1){
+    return 1;
+  }
+  if(decimal===0){
+    return 0;
+  }
+  return binaryConverter(Math.floor(decimal/2))+(decimal%2+'');
+}
+//O(log(n))
+//
+
+function factorial(num){
+  if(num === 1){
+    return 1;
+  }
+  return num*factorial(num-1);
+}
+// O(n)
+// because it will get each number from n all the way down to 1 and then multiplication
+// will be constant time.
+
+function fib(num){
+  if(num <= 2){
+    return 1;
+  }
+  return fib(num-2)+fib(num-1);
+}
+
+function fibString(nthFib){
+  for(let i = 1; i<=nthFib;i++){
+    console.log(fib(i));
+  }
+  return 'end';
+}
+
+//O(n)
+
+
+//anagrams
+
+// O(n^2)
+// For loop and recursive call
+
+//Animal & Organize
+
+//O(n^2)
+
+
+// ITERATIVE VERSIONS
+
+//Iterative sheep
+function countSheepLoop(num){
+  for(let i=num; i>0; i--){
+    console.log(`counting sheeps ${i}`);
+  }
+}
+
+//O(n)
+// only one for loop
+
+//Double ArrayDouble
+function double_all(arr) {
+  var ret = Array(arr.length);
+  for (var i = 0; i < arr.length; ++i) {
+    ret[i] = arr[i] * 2;
+  }
+  return ret;
+}
+
+//O(n)
+
+
+//reverse string
+function reverse_tail(str) {
+  var accumulator = "";
+  while (str !== "") {
+	accumulator = str[0] + accumulator;
+	str = str.slice(1);
+  }
+  return accumulator;
+}
+//O(n) only one while loop 
